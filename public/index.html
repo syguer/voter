@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="voter">
+  <head>
+    <meta charset="UTF-8">
+    <title>Voter</title>
+    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.18/angular.min.js"></script>
+    <script type="text/javascript" src="./voter.js"></script>
+  </head>
+  <body ng-controller="Candidate">
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <h2><font color="white">Voter</font></h2>
+        </div>
+      </div>
+    </nav>
+    <form ng-submit="add()">
+      <div class="form-group">
+        <label for="item-name">Name</label>
+        <input id="item-name" type="text" placeholder="Item name" ng-model="name">
+        <label for="item-url">Url</label>
+        <input id="item-url" type="text" placeholder="URL" ng-model="url">
+        <input type="submit" class="btn btn-primary" value="Add">
+      </div>
+    </form>
+    <div class="update">
+      <form ng-submit="update()">
+        <input type="submit" value="Update" class="btn btn-default">
+      </form>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>URL</th>
+              <th>Score</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="candidate in candidates">
+              <td>{{candidate.name}}</td>
+              <td><a href="{{candidate.url}}">URL</a></td>
+              <td>{{candidate.count}}</td>
+              <td>
+                <form ng-submit="vote(candidate.id)">
+                  <input type="submit" value="Vote" class="btn btn-success">
+                </form>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

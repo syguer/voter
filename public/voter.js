@@ -11,6 +11,8 @@ Voter.controller('Candidate', ['$scope','$http', function($scope, $http){
       url: $scope.url
     };
     $http.post('/candidates/', data).success(function(data){
+      $scope.name = "";
+      $scope.url = "";
       $http.get('/candidates/').success(function(data){
         $scope.candidates = data;
       });

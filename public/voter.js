@@ -30,5 +30,13 @@ Voter.controller('Candidate', ['$scope','$http', function($scope, $http){
       });
     });
   }
+
+  $scope.delete = function(candidate_id){
+    $http.delete('/candidates/'+ candidate_id).success(function(data){
+      $http.get('/candidates/').success(function(data){
+        $scope.candidates = data;
+      });
+    });
+  }
 }]);
 

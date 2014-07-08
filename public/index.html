@@ -40,6 +40,7 @@
               <th>URL</th>
               <th>Score</th>
               <th></th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -49,8 +50,13 @@
               <td>{{candidate.count}}</td>
               <td>
                 <form ng-submit="vote(candidate.id)">
-                  <input type="submit" value="Vote" class="btn btn-success">
+                  <input type="submit" value="vote" class="btn btn-success">
                 </form>
+              <td>
+                <form ng-submit="delete(candidate.id)">
+                  <input type="submit" value="delete" class="btn btn-danger">
+                </form>
+              </td>
               </td>
             </tr>
           </tbody>

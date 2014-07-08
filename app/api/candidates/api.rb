@@ -25,6 +25,11 @@ module Candidates
       put '/:id' do
         Candidate.vote params[:id]
       end
+
+      desc "Delete a specified candidate"
+      delete '/:id' do
+        Candidate.delete params[:id]
+      end
     end
   end
 end
